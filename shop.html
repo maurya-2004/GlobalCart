@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - E-Commerce</title>
+    <link rel="icon" href="/logo.ico">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .pro {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pro:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .pro img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .pro .des {
+            padding: 15px;
+        }
+
+        .pro .des span {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .pro .des h5 {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .pro .des .star {
+            color: #ffd700;
+            margin: 5px 0;
+        }
+
+        .pro .des h4 {
+            color: #088178;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .pro .cart {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: #088178;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .pro .cart:hover {
+            background: #066e67;
+            transform: scale(1.1);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 20px;
+            color: #ff0000;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="header">
+        <a href="index.html"><img width="40px" src="img/logo.png" class="logo" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="userSection" style="display: none;">
+                    <span id="userName"></span>
+                    <a href="#" id="logoutBtn">Logout</a>
+                </li>
+                <li id="loginSection" style="display: flex;">
+                    <a href="login.html">Login</a>
+                    <a href="signup.html">Sign Up</a>
+                </li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+                <a href="#" id="close"><i class="far fa-times"></i>
+                </a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i>
+            </a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+
+    <section id="page-header">
+       
+        <h2 class="cl">#stayhome</h2>
+      
+        <p class="cl">Save more with coupons up to 70% off!</p>
+       
+    </section>
+
+    <section id="product1" class="section-p1">
+        <div class="loading" id="loading" style="display:none;"><div class="spinner"></div></div>
+        <div class="error-message" id="errorMessage"></div>
+        <div class="pro-container" id="productContainer">
+            <!-- Products will be loaded dynamically -->
+        </div>
+        <div id="shop-toast" class="cart-toast" style="display:none;"></div>
+    </section>
+
+    <!-- Product Quick View Modal -->
+    
+
+    <section id="pagination" class="section-p1">
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#"><i class="fas fa-long-arrow-alt-right"></i></a>
+    </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>Get e-mail updates about our latest shop and <span>Special offers.</span> </p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your E-mail address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img width="40px" class="logo" src="img/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong>A-9, Aghora City Centre, Vadodara</p>
+            <p><strong>Phone:</strong>(+91)-9876543210/(+91-9678345612)</p>
+            <p><strong>Hours:</strong>10:00 - 20:00, Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div class="col">
+            <h4>Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help </a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p> From App Store or Google Play</p>
+            <div class="row">
+                <img src="img/pay/app.jpg" alt="">
+                <img src="img/pay/play.jpg" alt="">
+            </div>
+            <p>Secured Payment Gateway</p>
+            <img src="img/pay/pay.png" alt="">
+        </div>
+
+        <div class="copyright">
+            <p>© 2025, Maurya Patel - Global Cart</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+    <script src="localCart.js"></script>
+    <script>
+        // No longer using protectRoute() here as we are not relying on a backend for this page
+
+        // Using showToast from localCart.js now
+        // function showShopToast(message, type = 'success') {
+        //     const toast = document.getElementById('shop-toast');
+        //     toast.textContent = message;
+        //     toast.className = 'cart-toast ' + type;
+        //     toast.style.display = 'block';
+        //     setTimeout(() => { toast.style.display = 'none'; }, 2000);
+        // }
+        // function showShopLoading() {
+        //     document.getElementById('loading').style.display = 'block';
+        //     document.getElementById('errorMessage').style.display = 'none';
+        //     document.getElementById('productContainer').style.display = 'none';
+        // }
+        // function hideShopLoading() {
+        //     document.getElementById('loading').style.display = 'none';
+        // }
+
+        // Static product list (from localCart.js now)
+        // const staticProducts = [
+        //     // Featured Products
+        //     { id: 'f1', image: 'img/products/f1.jpg', name: 'Cartoon Astronaut T-Shirts', brand: 'Adidas', price: 999, category: 'Featured', stars: 5, description: 'High-quality cotton t-shirt with a unique astronaut design.' },
+        //     { id: 'f2', image: 'img/products/f2.jpg', name: 'Green leaves Shirt', brand: 'Adidas', price: 1599, category: 'Featured', stars: 5, description: 'Stylish shirt with a vibrant green leaves pattern, perfect for summer.' },
+        //     { id: 'f3', image: 'img/products/f3.jpg', name: 'Beige Shirt', brand: 'Adidas', price: 1399, category: 'Featured', stars: 5, description: 'Classic beige shirt, versatile for casual and semi-formal occasions.' },
+        //     { id: 'f4', image: 'img/products/f4.jpg', name: 'White Shirt', brand: 'Peter England', price: 1099, category: 'Featured', stars: 5, description: 'Crisp white shirt from Peter England, a timeless wardrobe essential.' },
+        //     { id: 'f5', image: 'img/products/f5.jpg', name: 'Dark BLue FLowers Shirt', brand: 'Raymond', price: 1199, category: 'Featured', stars: 5, description: 'Elegant dark blue shirt with subtle floral patterns, ideal for a refined look.' },
+        //     { id: 'f6', image: 'img/products/f6.jpg', name: 'Denim Shirts', brand: 'DNMX', price: 1899, category: 'Featured', stars: 5, description: 'Durable denim shirt from DNMX, comfortable and stylish for everyday wear.' },
+        //     { id: 'f7', image: 'img/products/f7.jpg', name: 'Baggy Trouser', brand: 'Arrow', price: 899, category: 'Featured', stars: 4, description: 'Comfortable baggy trousers by Arrow, perfect for a relaxed fit.' },
+        //     { id: 'f8', image: 'img/products/f8.jpg', name: 'Kurtis 7 Kurtas', brand: 'Biba Kurtis', price: 799, category: 'Featured', stars: 4, description: 'Traditional Kurtis and Kurtas from Biba, suitable for ethnic wear.' },
+        //     // New Arrivals
+        //     { id: 'n1', image: 'img/products/n1.jpg', name: 'Cotton Light BLue Shirt', brand: 'Adidas', price: 899, category: 'New Arrival', stars: 5, description: 'Light blue cotton shirt, breathable and comfortable for warm weather.' },
+        //     { id: 'n2', image: 'img/products/n2.jpg', name: 'Lght Grey Shirt', brand: 'Puma', price: 1099, category: 'New Arrival', stars: 5, description: 'Light grey Puma shirt, sleek and modern for athletic or casual style.' },
+        //     { id: 'n3', image: 'img/products/n3.jpg', name: 'Off WHite Shirt', brand: 'Adidas', price: 1299, category: 'New Arrival', stars: 5, description: 'Off-white Adidas shirt, a versatile addition to any wardrobe.' },
+        //     { id: 'n4', image: 'img/products/n4.jpg', name: 'Printed Design Shirt', brand: 'Peter England', price: 1199, category: 'New Arrival', stars: 5, description: 'Peter England shirt with a subtle printed design, adding a touch of elegance.' },
+        //     { id: 'n5', image: 'img/products/n5.jpg', name: 'Daenim Jeans Shirt', brand: 'DNMX', price: 1199, category: 'New Arrival', stars: 5, description: 'Denim jeans shirt from DNMX, trendy and casual for everyday wear.' },
+        //     { id: 'n6', image: 'img/products/n6.jpg', name: 'Cotton Trouser', brand: 'Arrow', price: 1499, category: 'New Arrival', stars: 5, description: 'Comfortable cotton trousers by Arrow, perfect for a relaxed yet smart look.' },
+        //     { id: 'n7', image: 'img/products/n7.jpg', name: 'Cream Cotton Shirt', brand: 'Jack & Jones', price: 1899, category: 'New Arrival', stars: 4, description: 'Cream cotton shirt from Jack & Jones, offering comfort and style.' },
+        //     { id: 'n8', image: 'img/products/n8.jpg', name: 'Pure Linen Black Shirt', brand: 'Netplay', price: 999, category: 'New Arrival', stars: 4, description: 'Pure linen black shirt from Netplay, lightweight and elegant.' },
+        // ];
+        function createProductHTML(product) {
+            return `
+                <div class="pro" tabindex="0">
+                    <img src="${product.image}" alt="${product.name}" onclick="window.location.href='sproduct.html?id=${product.id}'">
+                    <div class="des" onclick="window.location.href='sproduct.html?id=${product.id}'">
+                        <span>${product.brand}</span>
+                        <h5>${product.name}</h5>
+                        <div class="star">
+                            ${Array(product.stars).fill('<i class="fas fa-star"></i>').join('')}
+                        </div>
+                        <h4>₹${product.price}</h4>
+                    </div>
+                    <button class="cart add-to-cart-btn" aria-label="View ${product.name} details" onclick="window.location.href='sproduct.html?id=${product.id}'">
+                        <i class="fas fa-shopping-cart"></i> View
+                    </button>
+                </div>
+            `;
+        }
+        function loadProducts() {
+            console.log('loadProducts function called');
+            const container = document.getElementById('productContainer');
+            container.style.display = 'flex';
+            container.innerHTML = staticProducts.map(product => createProductHTML(product)).join('');
+        }
+        // Function to add item to cart
+        // Replaced with function from localCart.js
+        // async function addToCart(productId) {
+        //     console.log('addToCart function called for productId:', productId);
+        //     const token = localStorage.getItem('token');
+        //     if (!token) {
+        //         showShopToast('Please login to add items to cart', 'error');
+        //         console.log('No token found, user not authenticated for addToCart');
+        //         return;
+        //     }
+        //     try {
+        //         const response = await fetch('http://localhost:3000/api/cart/add', {
+        //             method: 'POST',
+        //             headers: {
+        //                 'Content-Type': 'application/json',
+        //                 'Authorization': `Bearer ${token}`
+        //             },
+        //             body: JSON.stringify({
+        //                 productId,
+        //                 quantity: 1
+        //             })
+        //         });
+        //         const data = await response.json();
+        //         if (response.ok) {
+        //             showShopToast('Added to cart!');
+        //         } else {
+        //             showShopToast(data.error || 'Failed to add product to cart', 'error');
+        //         }
+        //     } catch (error) {
+        //         showShopToast('An error occurred while adding to cart', 'error');
+        //     }
+        // }
+
+        // Load products when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOMContentLoaded event fired in shop.html');
+            updateNavigation(); // Update navbar on load
+            loadProducts(); // Load products for the shop page
+            
+            // Add logout functionality to the navbar's logout button (if it exists)
+            const logoutBtn = document.getElementById('logoutBtn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (confirm('Are you sure you want to logout?')) {
+                        handleLogout(); // Assuming handleLogout is in auth.js
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

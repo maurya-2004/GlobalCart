@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - E-Commerce</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        #login-form {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        #login-form h2 {
+            text-align: center;
+            color: #088178;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e1e1e1;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #088178;
+            outline: none;
+        }
+
+        #login-form button {
+            width: 100%;
+            padding: 12px;
+            background: #088178;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        #login-form button:hover {
+            background: #066e67;
+        }
+
+        #login-form p {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #login-form a {
+            color: #088178;
+            text-decoration: none;
+        }
+
+        #login-form a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: #ff0000;
+            text-align: center;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fff3f3;
+            border: 1px solid #ff0000;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <section id="header">
+        <a href="index.html"><img src="img/logo.png" class="logo" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="userSection" style="display: none;">
+                    <span id="userName"></span>
+                    <a href="#" id="logoutBtn">Logout</a>
+                </li>
+                <li id="loginSection">
+                    <a class="active" href="login.html">Login</a>
+                    <a href="signup.html">Sign Up</a>
+                </li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="login-form" class="section-p1">
+        <form id="loginForm">
+            <h2>Welcome Back!</h2>
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="error-message" id="errorMessage"></div>
+            <button type="submit">Login</button>
+            <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+        </form>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="img/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco</p>
+            <p><strong>Phone:</strong> +01 2222 365 /(+91) 01 2345 6789</p>
+            <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="img/pay/app.jpg" alt="">
+                <img src="img/pay/play.jpg" alt="">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="img/pay/pay.png" alt="">
+        </div>
+
+        <div class="copyright">
+            <p>© 2024, Tech2 etc - HTML CSS Ecommerce Template</p>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script>
+        // Redirect if already logged in
+        if (localStorage.getItem('token') && localStorage.getItem('user')) {
+            window.location.href = 'index.html';
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            console.log('Attempting login with email:', email);
+
+            try {
+                const response = await fetch('http://localhost:3000/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                console.log('Login response status:', response.status);
+                const data = await response.json();
+                console.log('Login response data:', data);
+
+                if (response.ok) {
+                    // Store token and user data
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    
+                    // Show success message
+                    errorMessage.style.display = 'none';
+                    errorMessage.style.color = '#088178';
+                    errorMessage.textContent = 'Login successful! Redirecting...';
+                    errorMessage.style.display = 'block';
+                    
+                    // Redirect after a short delay
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1000);
+                } else {
+                    // Show error message
+                    errorMessage.textContent = data.error || 'Invalid email or password';
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                errorMessage.textContent = 'An error occurred. Please try again.';
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html> 

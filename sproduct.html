@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - E-Commerce</title>
+    <link rel="icon" href="/logo.ico">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <section id="header">
+        <a href="index.html"><img width="40px" src="img/logo.png" class="logo" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="userSection" style="display: none;">
+                    <span id="userName"></span>
+                    <a href="#" id="logoutBtn">Logout</a>
+                </li>
+                <li id="loginSection" style="display: flex;">
+                    <a href="login.html">Login</a>
+                    <a href="signup.html">Sign Up</a>
+                </li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+
+    <section id="prodetails" class="section-p1">
+        <div class="single-pro-image">
+            <img src="" width="100%" id="MainImg" alt="">
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="" width="100%" class="small-img" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="" width="100%" class="small-img" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="" width="100%" class="small-img" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="" width="100%" class="small-img" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="single-pro-details">
+            <h6 id="productCategory">Home / T-Shirt</h6>
+            <h4 id="productName">Men's Fashion T-Shirt</h4>
+            <h2 id="productPrice">₹999.00</h2>
+            <select id="sizeSelect">
+                <option>Select Size</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+                <option>XXL</option>
+            </select>
+            <input type="number" value="1" id="quantity" min="1">
+            <button class="normal" onclick="addProductToCart()">Add To Cart</button>
+            <h4>Product Details</h4>
+            <span id="productDescription">The Gildan Ultra Cotton T-shirt is made from a substantial 6.0 oz. per sq. yd. fabric constructed from 100% cotton, this classic fit preshrunk jersey knit provides unmatched comfort with each wear. Featuring a taped neck and shoulder, and a seamless double-needle collar, and in a variety of colors, it offers it all in terms of comfort and durability.</span>
+        </div>
+    </section>
+
+    <div id="shop-toast" class="cart-toast" style="display:none;"></div>
+
+    <section id="product1" class="section-p1">
+        <h2>Featured Products</h2>
+        <p>Summer Collection New Modern Design</p>
+        <div class="pro-container" id="featuredProducts">
+            <!-- Featured products will be loaded dynamically -->
+            </div>
+    </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img width="40px" class="logo" src="img/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong>A-9, Aghora City Centre, Vadodara</p>
+            <p><strong>Phone:</strong>(+91)-9876543210/(+91-9678345612)</p>
+            <p><strong>Hours:</strong>10:00 - 20:00, Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div class="col">
+            <h4>Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help </a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p> From App Store or Google Play</p>
+            <div class="row">
+                <img src="img/pay/app.jpg" alt="">
+                <img src="img/pay/play.jpg" alt="">
+            </div>
+            <p>Secured Payment Gateway</p>
+            <img src="img/pay/pay.png" alt="">
+        </div>
+
+        <div class="copyright">
+            <p>© 2025, Maurya Patel - Global Cart</p>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="localCart.js"></script>
+    <script>
+        // No longer using protectRoute() as we are not relying on a backend
+        // protectRoute(); // Keep this if sproduct.html itself should be protected
+
+        // Get product ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        // Function to load product details
+        async function loadProductDetails() {
+            console.log('loadProductDetails function called');
+            const product = staticProducts.find(p => p.id === productId);
+
+            if (product) {
+                // Update product details
+                document.getElementById('productCategory').textContent = `Home / ${product.category}`;
+                document.getElementById('productName').textContent = product.name;
+                document.getElementById('productPrice').textContent = `₹${product.price}`;
+                document.getElementById('productDescription').textContent = product.description;
+                document.getElementById('MainImg').src = product.image;
+
+                // Update small images
+                const smallImages = document.querySelectorAll('.small-img');
+                product.images.forEach((img, index) => {
+                    if (smallImages[index]) {
+                        smallImages[index].src = img;
+                    }
+                });
+            } else {
+                console.error('Product not found for ID:', productId);
+                alert('Product details not found.');
+            }
+        }
+
+        // Function to add to cart (using localCart.js addToCart)
+        function addProductToCart() {
+            console.log('addToCart function called in sproduct.html for productId:', productId);
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const sizeSelect = document.getElementById('sizeSelect');
+            const size = sizeSelect.value !== 'Select Size' ? sizeSelect.value : null;
+            const addToCartBtn = document.querySelector('#prodetails .single-pro-details button.normal');
+
+            if (!size) {
+                alert('Please select a size');
+                console.log('Size not selected');
+                return;
+            }
+            
+            // Call addToCart from localCart.js
+            addToCart(productId, quantity, size);
+            
+            // Add animation class and then remove it after animation duration
+            if (addToCartBtn) {
+                addToCartBtn.classList.add('add-to-cart-success');
+                setTimeout(() => {
+                    addToCartBtn.classList.remove('add-to-cart-success');
+                }, 1000); // 1000ms = 1s, matches animation duration
+            }
+        }
+
+        // Function to load featured products (using staticProducts from localCart.js)
+        function loadFeaturedProducts() {
+            const container = document.getElementById('featuredProducts');
+            // Filter out the current product from featured products if it's there
+            const filteredProducts = staticProducts.filter(p => p.id !== productId);
+            const productsToShow = filteredProducts.slice(0, 4); // Show up to 4 featured products
+
+            container.innerHTML = productsToShow.map(product => `
+                <div class="pro" onclick="window.location.href='sproduct.html?id=${product.id}'">
+                    <img src="${product.image}" alt="">
+                    <div class="des">
+                        <span>${product.brand}</span>
+                        <h5>${product.name}</h5>
+                        <div class="star">
+                            ${Array(product.stars).fill('<i class=\"fas fa-star\"></i>').join('')}
+                        </div>
+                        <h4>₹${product.price}</h4>
+                    </div>
+                    <button class="cart add-to-cart-btn" aria-label="Add ${product.name} to cart" onclick="event.stopPropagation(); addToCart('${product.id}')">
+                        <i class="fas fa-shopping-cart"></i> Add
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Load product details and featured products when page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            updateNavigation(); // Update navbar on load
+
+            const logoutBtn = document.getElementById('logoutBtn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (confirm('Are you sure you want to logout?')) {
+                        handleLogout();
+                    }
+                });
+            }
+
+            if (productId) {
+                loadProductDetails();
+            }
+            loadFeaturedProducts();
+        });
+
+        // Small image click handler
+        var mainImg = document.getElementById("MainImg");
+        var smallImg = document.getElementsByClassName("small-img");
+
+        for (let i = 0; i < smallImg.length; i++) {
+            smallImg[i].onclick = function () {
+                mainImg.src = smallImg[i].src;
+            }
+        }
+    </script>
+</body>
+
+</html>
